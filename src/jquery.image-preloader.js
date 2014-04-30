@@ -2,21 +2,22 @@
     'use strict';
 
     /**
-     * @typedef {object} Status
+     * @typedef {Object} Status
      * @property {number} loaded
      * @property {number} failed
      * @property {number} total
      */
 
     /**
-     * @typedef {object} Listeners
+     * @typedef {Object} Listeners
      * @property {Function} progress
      * @property {Function} load
      * @property {Function} error
      * @property {Function} finish
      */
 
-    var defaultListeners = {
+    var /** @type {Listeners} */
+        defaultListeners = {
             progress: function () {},
             load: function () {},
             error: function () {},
@@ -93,6 +94,36 @@
         onProgress(status, listeners);
     };
 
+    /**
+     * @param {Array|string} imagePaths
+     * @param {Object} [listeners]
+     */
+    $.imagePathPreloader = function (imagePaths, listeners) {
+        // make sure imagePaths is an array
+        imagePaths = $.isArray(imagePaths) ? imagePaths : [imagePaths];
+        listeners = $.extend({}, defaultListeners, listeners || {});
+
+        var status = {
+            loaded: 0,
+            failed: 0,
+            total: imagePaths.length
+        };
+
+        $.each(imagePaths, function (index, imagePath) {
+            var $image = $('<img src="' + imagePath + '" />');
+
+            loadImage($image, function ($image) {
+                onImageLoad($image, status, listeners);
+            }, function ($image) {
+                onImageError($image, status, listeners);
+            });
+        });
+    };
+
+    /**
+     * @param listeners
+     * @returns {jQuery}
+     */
     $.fn.imagePreloader = function (listeners) {
         var status = {
             loaded: 0,

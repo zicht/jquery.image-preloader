@@ -1,16 +1,16 @@
 {
-    "name": "zicht-image-loader-js",
-    "version": "0.0.1",
-    "main": "src/jquery.image-loader.js",
-    "authors": [
-        "Joppe Aarts <joppe@zicht.nl>"
-    ],
-    "description": "Image preloader",
-    "devDependencies": {
-        "jasmine-jquery": "1.5.2",
-        "bootstrap-css": "~3.0.0"
-    },
-    "dependencies": {
-        "bootstrap-css": "~3.0.0"
-    }
+  "name": "zicht-jquery-image-preloader",
+  "version": "1.1.0",
+  "main": "src/jquery.image-preloader.js",
+  "authors": [
+    "Joppe Aarts <joppe@zicht.nl>"
+  ],
+  "description": "Image preloader",
+  "devDependencies": {
+    "jasmine-jquery": "1.5.2",
+    "bootstrap-css": "~3.0.0"
+  },
+  "dependencies": {
+    "jquery": "1.8"
+  }
 }

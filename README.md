@@ -5,7 +5,7 @@ With this jQuery plugin you can preload images.
 Usage
 
 ```javascript
-$('img').preload({
+$('img').imagePreloader({
     finish: function (status) {
         console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
     }
