@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/jquery.image-loader.js"></script>
+    <script type="text/javascript">
+        'use strict';
+
+        jQuery(function ($) {
+            var $header = $('h1');
+
+            function load() {
+                var $bar = $('.progress-bar'),
+                    $sr = $bar.find('.sr-only'),
+                    i;
+
+                // just some random images
+                for (i = 0; i < 10; i+= 1) {
+                    $('<img src="http://lorempixel.com/1024/768/sports/' + i + '?time=' + new Date() + '" style="visibility: hidden;">').appendTo($('body'));
+                }
+
+                // this is the magic
+                $('img').imagePreloader({
+                    progress: function (status)  {
+                        var percentage = Math.ceil((status.loaded / status.total) * 100);
+
+                        $bar.prop('aria-valuenow', percentage);
+                        $bar.css({
+                            width: percentage + '%'
+                        });
+                        $sr.text(percentage + '% Complete');
+                        $header.text(percentage + '% Complete');
+                    },
+
+                    finish: function () {
+                        $header.text('\\o/');
+                    }
+                });
+            }
+
+            window.setTimeout(function () {
+                $header.text('Get ready');
+
+                window.setTimeout(function () {
+                    $header.text('Set');
+
+                    window.setTimeout(function () {
+                        $header.text('Go');
+
+                        load();
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+</body>
+</html>
