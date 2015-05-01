@@ -5,7 +5,26 @@ With this jQuery plugin you can preload images.
 Usage
 
 ```javascript
+// preload all img tags
 $('img').imagePreloader({
+    finish: function (status) {
+        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
+    }
+});
+
+// preload image paths
+$.imagePathPreloader([
+    'http://lorempixel.com/400/200/sports/1/',
+    'http://lorempixel.com/400/200/sports/2/',
+    'http://lorempixel.com/400/200/sports/3/',
+], {
+    finish: function (status) {
+        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
+    }
+});
+
+// preload image path
+$.imagePathPreloader('http://lorempixel.com/400/200/sports/1/', {
     finish: function (status) {
         console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
     }
