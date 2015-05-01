@@ -1,0 +1,25 @@
+{
+    "name": "ZichtJqueryImagePreloader",
+    "version": "1.1.0",
+    "description": "Jquery plugin to preload images",
+    "main": "dist/jquery.image-preloader.min.js",
+    "directories": {},
+    "scripts": {
+        "karma": "node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@dev3:~/public_html/ZichtJqueryImagePreloader"
+    },
+    "keywords": [
+        "jquery",
+        "image",
+        "preload"
+    ],
+    "author": "Joppe Aarts",
+    "devDependencies": {
+        "karma": "^0.12.31",
+        "karma-jasmine": "^0.1.5",
+        "karma-phantomjs-launcher": "^0.1.4"
+    }
+}
