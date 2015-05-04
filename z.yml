@@ -7,7 +7,7 @@ zsass:
     dirs: [ 'demo' ]
 
 tasks:
-    test:
+    lint:
         - jshint ./src
         - jscs ./src -c ./src/.jscsrc
     update:
