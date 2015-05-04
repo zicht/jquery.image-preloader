@@ -8,7 +8,7 @@ Usage
 // preload all img tags
 $('img').imagePreloader({
     finish: function (status) {
-        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
+        console.log('preload finished, total=' + status.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
     }
 });
 
@@ -19,14 +19,14 @@ $.imagePathPreloader([
     'http://lorempixel.com/400/200/sports/3/',
 ], {
     finish: function (status) {
-        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
+        console.log('preload finished, total=' + status.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
     }
 });
 
 // preload image path
 $.imagePathPreloader('http://lorempixel.com/400/200/sports/1/', {
     finish: function (status) {
-        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
+        console.log('preload finished, total=' + status.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
     }
 });
 ```
