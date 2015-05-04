@@ -7,6 +7,9 @@ zsass:
     dirs: [ 'demo' ]
 
 tasks:
+    test:
+        - jshint ./src
+        - jscs ./src -c ./src/.jscsrc
     update:
         - npm install
         - bower install
@@ -22,6 +25,6 @@ tasks:
         # copy archive
         - scp latest.tar zichter@dev3:/var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/
         # unpack archive
-        - ssh zichter@dev3 "cd /var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/ && tar -xvf latest.tar && rm latest.tar && z update"
+        - ssh zichter@dev3 "cd /var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/ && tar -xf latest.tar && rm latest.tar && z update"
         # remove archive
         - rm latest.tar
