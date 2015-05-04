@@ -1,15 +1,14 @@
-plugins: ['core', 'svn', 'env', 'uglifyjs', 'bower']
-
-vcs:
-    url: svn://zon/projecten/zicht-libraries/ZichtImagePreloader.js
-
-env:
-    development:
-        ssh:    ~
-        web:    ~
-        db:     ~
-        url:    ~
-        root:   ~
+plugins: ['core', 'uglifyjs', 'zsass']
 
 uglifyjs:
     config: ./uglifyjs.yml
+
+zsass:
+    dirs: [ 'demo' ]
+
+tasks:
+    setup:
+        - npm install
+        - bower install
+        - @zsass.update
+        - @uglifyjs.update
