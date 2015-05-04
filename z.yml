@@ -17,13 +17,13 @@ tasks:
         - @uglifyjs.update
     create.demo:
         # create archive
-        - git archive master -o latest.tar
+        - git archive --remote=git@dev3:~/public_html/ZichtJqueryImagePreloader master -o /tmp/latest.tar
         # delete old demo dir
         - ssh zichter@dev3 "rm -rf /var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader"
         # create demo dir
         - ssh zichter@dev3 "mkdir -p /var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader"
         # copy archive
-        - scp latest.tar zichter@dev3:/var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/
+        - scp /tmp/latest.tar zichter@dev3:/var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/
         # unpack archive
         - ssh zichter@dev3 "cd /var/www/dev/bower/default/public/demo/zicht-jquery-image-preloader/ && tar -xf latest.tar && rm latest.tar && z update"
         # remove archive
