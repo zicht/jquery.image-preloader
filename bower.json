@@ -1,11 +1,11 @@
 {
     "name": "zicht-jquery-image-preloader",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "main": "src/jquery.image-preloader.js",
     "authors": [
         "Joppe Aarts <joppe@zicht.nl>"
     ],
-    "description": "Image preloader",
+    "description": "Image preloader, preloads image elements and image paths",
     "devDependencies": {
         "jasmine-jquery": "1.5.2",
         "bootstrap-css": "~3.0.0"
