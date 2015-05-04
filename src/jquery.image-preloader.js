@@ -99,7 +99,7 @@
      * @param {Object} [listeners]
      */
     $.imagePathPreloader = function (imagePaths, listeners) {
-        // make sure imagePaths is an array
+        // Make sure imagePaths is an array
         imagePaths = $.isArray(imagePaths) ? imagePaths : [imagePaths];
         listeners = $.extend({}, defaultListeners, listeners || {});
 
