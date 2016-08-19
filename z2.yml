@@ -35,5 +35,6 @@ tasks:
     package.karma:
         pre:
             - @package.npm
+            - @package.bower
         do:
             - node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots
