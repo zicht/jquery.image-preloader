@@ -1,3 +1,6 @@
+/*global jQuery*/
+// jscs:disable requireEnhancedObjectLiterals, requireTemplateStrings
+
 (function ($) {
     'use strict';
 
@@ -99,11 +102,13 @@
      * @param {Object} [listeners]
      */
     $.imagePathPreloader = function (imagePaths, listeners) {
+        var status;
+
         // Make sure imagePaths is an array
         imagePaths = $.isArray(imagePaths) ? imagePaths : [imagePaths];
         listeners = $.extend({}, defaultListeners, listeners || {});
 
-        var status = {
+        status = {
             loaded: 0,
             failed: 0,
             total: imagePaths.length
