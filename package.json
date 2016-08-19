@@ -1,6 +1,6 @@
 {
     "name": "ZichtJqueryImagePreloader",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Jquery plugin to preload images",
     "main": "dist/jquery.image-preloader.min.js",
     "directories": {},
