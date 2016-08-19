@@ -20,7 +20,7 @@ module.exports = function (config) {
         files: [
             // dependencies
             {
-                pattern: 'bower_components/jquery/jquery.js',
+                pattern: 'bower_components/jquery/dist/jquery.js',
                 watched: false,
                 served: true,
                 included: true
