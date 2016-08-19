@@ -33,4 +33,7 @@ tasks:
             - @zsass.update
 
     package.karma:
-        - node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots
+        pre:
+            - @package.npm
+        do:
+            - node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots
