@@ -1,4 +1,4 @@
 .idea/
-bower_components/
+vendor/
 node_modules/
 demo/style/*.css

@@ -20,13 +20,13 @@ module.exports = function (config) {
         files: [
             // dependencies
             {
-                pattern: 'bower_components/jquery/dist/jquery.js',
+                pattern: 'vendor/jquery/dist/jquery.js',
                 watched: false,
                 served: true,
                 included: true
             },
             {
-                pattern: 'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+                pattern: 'vendor/jasmine-jquery/lib/jasmine-jquery.js',
                 watched: false,
                 served: true,
                 included: true
