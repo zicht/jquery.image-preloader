@@ -1,0 +1,19 @@
+# @version ">=2.0"
+plugins: ['core', 'sass', 'zsass']
+
+sass:
+    dirs:
+        - demo
+
+tasks:
+    package.lint:
+        - jshint ./src
+        - jscs ./src -c ./src/.jscsrc
+
+    package.update:
+        - npm install
+        - bower install
+        - @zsass.update
+
+    package.karma:
+        - node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots
