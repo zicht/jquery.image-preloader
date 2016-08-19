@@ -1,6 +1,0 @@
-target_dir: dist
-web_root:   .
-src_dir:    src
-resources:
-    jquery.image-preloader.min.js:
-        files: ['jquery.image-preloader.js']
