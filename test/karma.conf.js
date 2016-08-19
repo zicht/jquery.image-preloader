@@ -1,5 +1,5 @@
-/*jshint strict: false*/
-/*global module*/
+// jscs:disable
+// jshint ignore:start
 
 // Karma configuration
 // Generated on Fri May 01 2015 16:18:21 GMT+0200 (CEST)
@@ -36,6 +36,14 @@ module.exports = function (config) {
             {
                 pattern: 'test/fixtures/*.html',
                 watched: true,
+                included: false,
+                served: true
+            },
+
+            // images
+            {
+                pattern: 'test/fixtures/img/*.jpg',
+                watched: false,
                 included: false,
                 served: true
             },
