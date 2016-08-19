@@ -6,14 +6,31 @@ sass:
         - demo
 
 tasks:
+    package.npm:
+        yield: true
+        do:
+            - npm install
+
+    package.bower:
+        yield: true
+        pre:
+            - @package.npm
+        do:
+            - node_modules/bower/bin/bower install
+
     package.lint:
-        - jshint ./src
-        - jscs ./src -c ./src/.jscsrc
+        pre:
+            - @package.npm
+            - @package.bower
+        do:
+            - node node_modules/jshint/bin/jshint --config ./vendor/zicht-jshint/.jshintrc ./src
+            - node node_modules/jscs/bin/jscs --config ./vendor/zicht-jscs/.jscsrc ./src
 
     package.update:
-        - npm install
-        - bower install
-        - @zsass.update
+        do:
+            - @package.npm
+            - @package.bower
+            - @zsass.update
 
     package.karma:
         - node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots
