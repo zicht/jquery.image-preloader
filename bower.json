@@ -1,6 +1,6 @@
 {
     "name": "zicht-jquery-image-preloader",
-    "version": "1.4.2",
+    "version": "1.5.0",
     "main": "src/jquery.image-preloader.js",
     "authors": [
         "Joppe Aarts <joppe@zicht.nl>"
