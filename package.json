@@ -19,8 +19,7 @@
     "author": "Joppe Aarts",
     "devDependencies": {
         "bower": "^1.7.2",
-        "jscs": "^2.7.0",
-        "jshint": "^2.8.0",
+        "zicht-eslint": "git+ssh://git@git.zicht.nl:zicht/eslint.git",
         "karma": "^0.12.31",
         "karma-jasmine": "^0.1.5",
         "karma-phantomjs-launcher": "^0.1.4"
