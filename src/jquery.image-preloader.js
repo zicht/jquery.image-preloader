@@ -1,18 +1,15 @@
-/*global jQuery*/
-// jscs:disable requireEnhancedObjectLiterals, requireTemplateStrings
+/* global jQuery */
 
 (function ($) {
-    'use strict';
-
     /**
-     * @typedef {Object} Status
+     * @typedef {object} Status
      * @property {number} loaded
      * @property {number} failed
      * @property {number} total
      */
 
     /**
-     * @typedef {Object} Listeners
+     * @typedef {object} Listeners
      * @property {Function} progress
      * @property {Function} load
      * @property {Function} error
@@ -21,10 +18,10 @@
 
     var /** @type {Listeners} */
         defaultListeners = {
-            progress: function () {},
-            load: function () {},
-            error: function () {},
-            finish: function () {}
+            progress: function () {}, // eslint-disable-line no-empty-function
+            load: function () {}, // eslint-disable-line no-empty-function
+            error: function () {}, // eslint-disable-line no-empty-function
+            finish: function () {} // eslint-disable-line no-empty-function
         },
         loadImage,
         onProgress,
@@ -42,7 +39,7 @@
 
         // If complete is true and browser supports natural sizes,
         // try to check for image status manually.
-        if (img.complete && (typeof img.naturalWidth !== 'undefined')) {
+        if (img.complete && ('undefined' !== typeof img.naturalWidth)) {
             success($image);
         } else {
             $newImage = $('<img>');
@@ -99,47 +96,44 @@
 
     /**
      * @param {Array|string} imagePaths
-     * @param {Object} [listeners]
+     * @param {Object} [config]
      */
-    $.imagePathPreloader = function (imagePaths, listeners) {
-        var status;
-
-        // Make sure imagePaths is an array
-        imagePaths = $.isArray(imagePaths) ? imagePaths : [imagePaths];
-        listeners = $.extend({}, defaultListeners, listeners || {});
+    $.imagePathPreloader = function (imagePaths, config) {
+        var status,
+            imagePathsArr = $.isArray(imagePaths) ? imagePaths : [imagePaths],
+            listeners = $.extend({}, defaultListeners, config || {});
 
         status = {
             loaded: 0,
             failed: 0,
-            total: imagePaths.length
+            total: imagePathsArr.length
         };
 
-        $.each(imagePaths, function (index, imagePath) {
+        $.each(imagePathsArr, function (index, imagePath) {
             var $image = $('<img src="' + imagePath + '" />');
 
-            loadImage($image, function ($image) {
+            loadImage($image, function () {
                 onImageLoad($image, status, listeners);
-            }, function ($image) {
+            }, function () {
                 onImageError($image, status, listeners);
             });
         });
     };
 
     /**
-     * @param listeners
+     * @param {Listeners} config
      * @returns {jQuery}
      */
-    $.fn.imagePreloader = function (listeners) {
+    $.fn.imagePreloader = function (config) {
         var status = {
-            loaded: 0,
-            failed: 0,
-            total: this.size()
-        };
+                loaded: 0,
+                failed: 0,
+                total: this.size()
+            },
+            listeners = $.extend({}, defaultListeners, config || {});
 
-        listeners = $.extend({}, defaultListeners, listeners || {});
-
-        return this.each(function () {
-            loadImage($(this), function ($image) {
+        return this.each(function (index, el) {
+            loadImage($(el), function ($image) {
                 onImageLoad($image, status, listeners);
             }, function ($image) {
                 onImageError($image, status, listeners);
