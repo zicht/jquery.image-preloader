@@ -43,3 +43,6 @@ All functions are optional.
 ## Resources
 + [stackoverflow.com](http://stackoverflow.com/questions/1977871/check-if-an-image-is-loaded-no-errors-in-javascript)
 + [sajithmr.me](http://www.sajithmr.me/javascript-check-an-image-is-loaded-or-not/)
+
+# Maintainer(s)
+* Joppe Aarts <joppe@zicht.nl>
